@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+	<style>
+	 
+	</style>
+</head>
+<body>
+	<h1>Welcome to Admin DashBoard</h1>
+	 <a href="/logout" style="float:right;padding-right:10px">Logout</a>
+	<table class="table">
+		<thead class="table-success">
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Age</th>
+				<th>gender</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="user : ${user}">
+				<td th:text="${user.username}"></td>
+				<td th:text="${user.email}"></td>
+				<td th:text="${user.age}"></td>
+				<td th:text="${user.gender}"></td>
+				<td> <a
+                  th:href="@{/delete/{id}(id=${user.id})}"
+                  class="btn btn-danger"
+                  >Delete</a
+                ></td>
+		</tbody>
+	</table>
+	
+</body>
+</html>
